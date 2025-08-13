@@ -1,26 +1,29 @@
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strstr(char *str, char *to_find) //bu fonksiyon bir yazinin icinde baska bir kelimeyi arar.
+//Eğer aradığın kelime boşsa (""), direkt yazının başını döndürür.
+//Aranan kelimeyi bulursa, kelimenin basladigi yeri döndurur.
+//Eger kelimeyi bulamazsa, null döndurur.
 {
 	int i;
 	int j;
 
-	if (to_find[0] == '\0')
+	if (to_find[0] == '\0') //eger aradigimiz kelime bos ise yazinin basini dondurur.
 		return (str);
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i] != '\0') //yazinin sonuna gelene kadar dongu devam eder.
 	{
-		j = 0;
+		j = 0; //j to_find icin bir sayac. aranan kelimenin sonuna gelene kadar kontrol yapilir.
 		while (to_find[j] != '\0')
 		{
-			if (str[i + j] == to_find[j])
+			if (str[i + j] == to_find[j]) //Eğer str’in şu anki karakteri (i + j) ile to_find’in karakteri aynıysa, bir sonraki harfe bakar (j++).
 			{
 				j++;
 			}
 			else
 				break ;
 		}
-		if (to_find[j] == '\0')
+		if (to_find[j] == '\0') //Eğer to_find’in sonuna kadar ('\0') gelinmişse, demek ki bütün kelime bulundu.
 		{
-			return (str + i);
+			return (str + i); //str’in i’nci harfinden başlayan adres (yani kelimenin başladığı yer) döndürülür. adresi i kadar ileri tasir
 		}
 		i++;
 	}
