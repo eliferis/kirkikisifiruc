@@ -1,6 +1,6 @@
 #include <string.h>
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size) //burada farkli olarak destin toplam kapasitesini belirten size vardir.
 {
 	unsigned int	i;
 	unsigned int	j;
@@ -36,3 +36,9 @@ int main(void)
     // The result should be "Hello, World!" and the return value should be the total length of the concatenated string
     return 0; // Exit the program
 }
+
+//Eğer dest’te hâlâ yer varsa (j < size - 1), karakter kopyalanır.
+
+//j her seferinde artar → toplam uzunluk sayacı gibi.
+
+//i → src’de ilerlemek için.
