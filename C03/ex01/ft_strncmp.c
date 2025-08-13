@@ -1,14 +1,21 @@
-int ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-    while (n && *s1 && (*s1 == *s2))
-    {
-        s1++;
-        s2++;
-        n--;
-    }
-    if (n == 0)
-        return 0;
-    return (unsigned char)(*s1) - (unsigned char)(*s2);
+	int unsigned i;
+
+	i = 0;
+	while ((s1[i] || s2[i]) && (i < n))
+	{
+		if (s1[i] < s2[i])
+		{
+			return (-1);
+		}
+		else if (s1[i] > s2[i])
+		{
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }
 // This function compares up to n characters of two strings s1 and s2.
 // It returns a negative value if s1 is less than s2,
