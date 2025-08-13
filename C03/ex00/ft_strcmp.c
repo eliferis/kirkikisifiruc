@@ -19,6 +19,7 @@ int	ft_strcmp(char *s1, char *s2)
 	}
 	return (0);
 }
+//tüm stringlerin karsilastirmasi yapilir. hepsinin esitligi ve buyuklugu anlasilir.
 // This function compares two strings s1 and s2.
 // It returns a negative value if s1 is less than s2,
 // a positive value if s1 is greater than s2, and zero if they are equal.
