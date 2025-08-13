@@ -1,24 +1,24 @@
-char *ft_strncat(char *dest, char *src, unsigned int nb)
+#include <string.h>
+
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-    char *ptr = dest;
+	unsigned int	i;
+	unsigned int	j;
 
-    // Move ptr to the end of dest
-    while (*ptr)
-    {
-        ptr++;
-    }
-
-    // Append up to n characters from src to dest
-    while (nb && *src)
-    {
-        *ptr++ = *src++;
-        nb--;
-    }
-
-    // Null-terminate the concatenated string
-    *ptr = '\0';
-
-    return dest;
+	i = 0;
+	j = 0;
+	while (dest[i] != '\0')
+	{
+		i++;
+	}
+	while (j < nb && src[j])
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
 // This function concatenates up to n characters from the string src to the end of dest.
 // It returns a pointer to the resulting string dest.
