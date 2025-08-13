@@ -7,19 +7,20 @@ char	*ft_strcat(char *dest, char *src)
 
 	i = 0;
 	j = 0;
-	while (dest[i] != '\0')
+	while (dest[i] != '\0') //i ile destin sonunu bulur. destin sonuna kadar ilerler.
 	{
 		i++;
 	}
-	while (src[j] != '\0')
+	while (src[j] != '\0') //burada da src nin her karakterini alir ve destin sonuna kopyalar. i destin yazilacak konumunu, j ise srcde okunacak bölumu gösterir.
 	{
 		dest[i] = src[j];
 		i++;
 		j++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	dest[i] = '\0'; //c dilinde stringler null ile biter. bu yuzden ekleme islemi bitince sonuna null terminal eklenir.
+	return (dest); //böylece fonksiyon ekleme yapilmis stringin adresini dondurur.
 }
+//strcat fonksiyonu, src stringini dest stringinin sonuna ekler.
 // This function concatenates the string src to the end of dest.
 // It returns a pointer to the resulting string dest.
 
