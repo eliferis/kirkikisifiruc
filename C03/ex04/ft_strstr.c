@@ -1,29 +1,31 @@
-char *ft_strstr(char *str, char *to_find)
+char	*ft_strstr(char *str, char *to_find)
 {
-    char *s1;
-    char *s2;
+	int i;
+	int j;
 
-    if (!*to_find)
-        return str; // If to_find is empty, return str
-
-    while (*str)
-    {
-        s1 = str;
-        s2 = to_find;
-
-        // Compare the current position in str with to_find
-        while (*s1 && *s2 && (*s1 == *s2))
-        {
-            s1++;
-            s2++;
-        }
-
-        // If we reached the end of to_find, we found a match
-        if (!*s2)
-            return str;
-
-        str++;
-    }
+	if (to_find[0] == '\0')
+		return (str);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		j = 0;
+		while (to_find[j] != '\0')
+		{
+			if (str[i + j] == to_find[j])
+			{
+				j++;
+			}
+			else
+				break ;
+		}
+		if (to_find[j] == '\0')
+		{
+			return (str + i);
+		}
+		i++;
+	}
+	return (0);
+}
 
     return NULL; // If no match was found, return NULL
 }
