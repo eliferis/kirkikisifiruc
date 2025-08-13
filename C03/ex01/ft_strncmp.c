@@ -17,6 +17,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	}
 	return (0);
 }
+//sadece ilk n karakter üzerinden karsilastirma yapilir.
 // This function compares up to n characters of two strings s1 and s2.
 // It returns a negative value if s1 is less than s2,
 // a positive value if s1 is greater than s2, and zero if they are equal
