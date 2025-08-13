@@ -1,23 +1,24 @@
-char *ft_strcat(char *dest, char *src)
+#include <string.h>
+
+char	*ft_strcat(char *dest, char *src)
 {
-    char *ptr = dest;
+	int	i;
+	int	j;
 
-    // Move ptr to the end of dest
-    while (*ptr)
-    {
-        ptr++;
-    }
-
-    // Append src to dest
-    while (*src)
-    {
-        *ptr++ = *src++;
-    }
-
-    // Null-terminate the concatenated string
-    *ptr = '\0';
-
-    return dest;
+	i = 0;
+	j = 0;
+	while (dest[i] != '\0')
+	{
+		i++;
+	}
+	while (src[j] != '\0')
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
 // This function concatenates the string src to the end of dest.
 // It returns a pointer to the resulting string dest.
