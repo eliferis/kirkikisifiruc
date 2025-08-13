@@ -7,11 +7,11 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 
 	i = 0;
 	j = 0;
-	while (dest[i] != '\0')
+	while (dest[i] != '\0') //döngu desti tarar.
 	{
 		i++;
 	}
-	while (j < nb && src[j])
+	while (j < nb && src[j]) //srcden deste kadar limitli ekleme. i dest icinde ilerler, j src icinde ilerler.
 	{
 		dest[i] = src[j];
 		i++;
