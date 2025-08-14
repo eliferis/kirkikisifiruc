@@ -1,44 +1,56 @@
-#include <string.h>
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size) //burada farkli olarak destin toplam kapasitesini belirten size vardir.
+// #include <stdio.h>
+
+unsigned int	ft_strlen(char *str)
 {
 	unsigned int	i;
-	unsigned int	j;
 
 	i = 0;
-	j = 0;
-	while (dest[j] != '\0')
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+// This function returns the lenght of the strings that will be concatenated
+// It also changes the destination string
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+{
+	unsigned int	i;
+	unsigned int	d;
+	unsigned int	s;
+	unsigned int	sum;
+
+	i = 0;
+	sum = 0;
+	d = ft_strlen(dest);
+	s = ft_strlen(src);
+	// If the past value is higher than dest
+	if (size > d)
+		// Lengths receives the SRC and dest lengths
+		sum = d + s;
+	else
+		// Otherwise it receives the SRC lenght plus the size
+		sum = s + size;
+	
+	// While SRC doesn't reach the end and size is larger than dest + 1
+	while (src[i] && size > (d + 1))
 	{
-		j++;
-	}
-	while (src[i] != '\0')
-	{
-		if (j < size - 1)
-		{
-			dest[j] = src[i];
-		}
-		j++;
+		dest[d] = src[i];
+		d++;
 		i++;
 	}
-	dest[j - 1] = '\0';
-	return (j);
+	// The last position of the size is stored for the null
+	dest[d] = '\0';
+	return (sum);
 }
-
-int main(void)
+/* 
+int	main(void)
 {
-    // Example usage of ft_strlcat
-    char dest[50] = "Hello, ";
-    char src[] = "World!";
-    unsigned int size = 50;
+	char	dest[10] = "dest";
+	char	src[10] = "src";
+	int	size = 6;
 
-    unsigned int result = ft_strlcat(dest, src, size); // Should concatenate src to dest
-
-    // The result should be "Hello, World!" and the return value should be the total length of the concatenated string
-    return 0; // Exit the program
-}
-
-//Eğer dest’te hâlâ yer varsa (j < size - 1), karakter kopyalanır.
-
-//j her seferinde artar → toplam uzunluk sayacı gibi.
-
-//i → src’de ilerlemek için.
+	printf("Dest Before: %s\n", dest);
+	printf("Return of strlcat: %d\n", ft_strlcat(dest, src, size));
+	printf("Dest after: %s\n", dest);
+} 
